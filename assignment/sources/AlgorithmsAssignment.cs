@@ -116,8 +116,8 @@ class AlgorithmsAssignment : Game
 		//_graph = new HighLevelDungeonNodeGraph(_dungeon);
 		//_graph = new LowLevelDungeonNodeGraph(_dungeon);
 
-		_graph = new SufficientDungeonNodeGraph(_dungeon);
-		//_graph = new ExcelentDungeonNodeGraph(_dungeon);
+		//_graph = new SufficientDungeonNodeGraph(_dungeon);
+		_graph = new ExcelentDungeonNodeGraph(_dungeon);
 		if (_graph != null) _graph.Generate();
 
 		/////////////////////////////////////////////////////////////
@@ -127,7 +127,7 @@ class AlgorithmsAssignment : Game
 		//TODO: Study the SampleNodeGraphAgent class and try it out below
 		//TODO: Comment out the SampleNodeGraphAgent again, implement an OnGraphWayPointAgent class and uncomment it below
 
-		_agent = new SufficientNodeGraphAgent(_graph);
+		_agent = new RecursiveNodeGraphAgent(_graph);
 		//_agent = new OnGraphWayPointAgent(_graph);
 
 		////////////////////////////////////////////////////////////
