@@ -20,3 +20,10 @@ C:\Users\tjall\Downloads\cmgt.algorithms.student(1)\cmgt.algorithms.student\assi
 C:\Users\tjall\Downloads\cmgt.algorithms.student(1)\cmgt.algorithms.student\assignment\obj\Debug\Algorithms.csproj.AssemblyReference.cache
 C:\Users\tjall\Downloads\cmgt.algorithms.student(1)\cmgt.algorithms.student\assignment\obj\Debug\Algorithms.csproj.SuggestedBindingRedirects.cache
 C:\Users\tjall\Downloads\cmgt.algorithms.student(1)\cmgt.algorithms.student\assignment\obj\Debug\Algorithms.csproj.CoreCompileInputs.cache
+D:\02 GameDev\Algorithms\assignment\bin\Debug\dcg.exe.config
+D:\02 GameDev\Algorithms\assignment\bin\Debug\dcg.exe
+D:\02 GameDev\Algorithms\assignment\bin\Debug\dcg.pdb
+D:\02 GameDev\Algorithms\assignment\obj\Debug\Algorithms.csproj.AssemblyReference.cache
+D:\02 GameDev\Algorithms\assignment\obj\Debug\Algorithms.csproj.CoreCompileInputs.cache
+D:\02 GameDev\Algorithms\assignment\obj\Debug\dcg.exe
+D:\02 GameDev\Algorithms\assignment\obj\Debug\dcg.pdb

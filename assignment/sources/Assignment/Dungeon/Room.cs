@@ -7,6 +7,7 @@ using GXPEngine;
 class Room
 {
 	public Rectangle area;
+	public Brush color;
 
 	public Room (Rectangle pArea)
 	{

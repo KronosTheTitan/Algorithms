@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Threading;
 
-class SufficientPathFinder : PathFinder
+class IterativePathFinder : PathFinder
 {
-    public SufficientPathFinder(NodeGraph pGraph) : base(pGraph)
+    public IterativePathFinder(NodeGraph pGraph) : base(pGraph)
     {
         
     }

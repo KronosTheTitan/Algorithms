@@ -72,7 +72,6 @@ class AlgorithmsAssignment : Game
 		//TODO: Study the SampleDungeon class and try it out below
 		//TODO: Comment out SampleDungeon below, implement a SufficientDungeon class and uncomment it below
 
-		_dungeon = new SufficientDungeon(size);
 		//_dungeon = new SufficientDungeon(size);
 
 		/////////////////////////////////
@@ -81,7 +80,7 @@ class AlgorithmsAssignment : Game
 		//TODO: Study assignment 1.2 on blackboard
 		//TODO: Comment out SufficientDungeon above, implement a GoodDungeon class, and uncomment it below
 
-		//_dungeon = new GoodDungeon(size);
+		_dungeon = new GoodDungeon(size);
 
 		//////////////////////////////////////
 		//Assignment 1.3 Excellent (optional)
@@ -116,8 +115,8 @@ class AlgorithmsAssignment : Game
 		//_graph = new HighLevelDungeonNodeGraph(_dungeon);
 		//_graph = new LowLevelDungeonNodeGraph(_dungeon);
 
-		//_graph = new SufficientDungeonNodeGraph(_dungeon);
-		_graph = new ExcelentDungeonNodeGraph(_dungeon);
+		_graph = new SufficientDungeonNodeGraph(_dungeon);
+		//_graph = new ExcelentDungeonNodeGraph(_dungeon);
 		if (_graph != null) _graph.Generate();
 
 		/////////////////////////////////////////////////////////////
@@ -167,7 +166,7 @@ class AlgorithmsAssignment : Game
 		//TODO: Study the SamplePathFinder class and try it out
 		//TODO: Comment out the SamplePathFinder, implement a RecursivePathFinder and uncomment it below
 
-		//_pathFinder = new SamplePathFinder(_graph);
+		_pathFinder = new SamplePathFinder(_graph);
 		//_pathFinder = new RecursivePathFinder(_graph);
 
 		//////////////////////////////////////////////////////////////////////////

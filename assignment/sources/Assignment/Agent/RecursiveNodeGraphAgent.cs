@@ -16,7 +16,8 @@ class RecursiveNodeGraphAgent : NodeGraphAgent
         SetOrigin(width / 2, height / 2);
 
         _nodeGraph = pNodeGraph;
-        _pathFinder = new SufficientPathFinder(_nodeGraph);
+        _pathFinder = new IterativePathFinder(_nodeGraph);
+        //_pathFinder = new RecursivePathFinder(_nodeGraph);
 
         //position ourselves on a random node
         if (pNodeGraph.nodes.Count > 0)
