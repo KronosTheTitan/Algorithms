@@ -14,6 +14,11 @@ class Room
 		area = pArea;
 	}
 
+	/// <summary>
+	/// returns the center of the room scaled by the input.
+	/// </summary>
+	/// <param name="scale"></param>
+	/// <returns></returns>
 	public Point getCenter(float scale)
 	{
 		return new Point(Mathf.Round(((area.Left+area.Right)/2) *scale),Mathf.Round(((area.Top+area.Bottom)/2)*scale));

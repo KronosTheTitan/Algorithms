@@ -11,8 +11,13 @@ class GoodDungeon : Dungeon
 
     protected override void generate(int pMinimumRoomSize)
     {
+        //-------------------------------------------
+        //IDENTICAL TO THE SUFFICIENT DUNGEON
+        //Look for documentation there, or scroll down for specific changes
+        //-------------------------------------------
         rooms.Add(new Room(new Rectangle(0, 0, size.Width, size.Height)));
         
+        //store the amount of doors for each room.
         Dictionary<Room, int> doorCount = new Dictionary<Room, int>();
 
         bool foundPossiblePartion = true;
@@ -32,10 +37,15 @@ class GoodDungeon : Dungeon
                             room.area.Right - pMinimumRoomSize) - room.area.Left;
                         Room room1 = new Room(new Rectangle(room.area.X, room.area.Y, splitPoint+1,
                             room.area.Height));
+                        
+                        Console.WriteLine("Created a room of size = " + room1.area.Size);
+                        
                         newRooms.Add(room1);
-                        newRooms.Add(new Room(new Rectangle(room.area.X + room1.area.Width-1, room.area.Y,
-                            room.area.Width-room1.area.Width+1, room.area.Height)));
+                        Room room2 = new Room(new Rectangle(room.area.X + room1.area.Width - 1, room.area.Y,
+                            room.area.Width - room1.area.Width + 1, room.area.Height));
+                        newRooms.Add(room2);
                         newRooms.Remove(room);
+                        Console.WriteLine("Created a room of size = " + room2.area.Size);
                         foundPossiblePartion = true;
                     }
                 }
@@ -47,9 +57,15 @@ class GoodDungeon : Dungeon
                             room.area.Bottom - pMinimumRoomSize) - room.area.Top;
                         Room room1 = new Room(new Rectangle(room.area.X, room.area.Y, room.area.Width,
                             splitPoint + 1));
+                        
+                        Console.WriteLine("Created a room of size = " + room1.area.Size);
+                        
                         newRooms.Add(room1);
-                        newRooms.Add(new Room(new Rectangle(room.area.X,room.area.Y + room1.area.Height-1,room.area.Width,room.area.Height-room1.area.Height+1)));
+                        Room room2 = new Room(new Rectangle(room.area.X, room.area.Y + room1.area.Height - 1,
+                            room.area.Width, room.area.Height - room1.area.Height + 1));
+                        newRooms.Add(room2);
                         newRooms.Remove(room);
+                        Console.WriteLine("Created a room of size = " + room2.area.Size);
                         foundPossiblePartion = true;
                     }
                 }
@@ -69,15 +85,22 @@ class GoodDungeon : Dungeon
             if (room.area.Size.Width*room.area.Size.Height > largest)
             {
                 largest = room.area.Size.Width*room.area.Size.Height;
+                Console.WriteLine("new largest = " + largest);
                 continue;
             }
             if (room.area.Size.Width*room.area.Size.Height < smallest)
             {
                 smallest = room.area.Size.Width*room.area.Size.Height;
+                Console.WriteLine("new smallest = " + smallest);
                 continue;
             }
         }
+        //-------------------------------------------
+        //DIFFERENT FROM SUFFICIENT
+        //-------------------------------------------
 
+        //go through every room and check if it is either the smallest or largest size.
+        //if it is the case mark the room for removal by adding it to a list.
         foreach (Room room in rooms)
         {
             if(room.area.Size.Width*room.area.Size.Height == smallest || room.area.Size.Width*room.area.Size.Height == largest ) removal.Add(room);
@@ -87,10 +110,12 @@ class GoodDungeon : Dungeon
             }
         }
 
+        //remove all the rooms that were added to the removal list.
         foreach (Room room in removal)
         {
             rooms.Remove(room);
         }
+        removal.Clear();
 
         //Add in doors
 
@@ -111,8 +136,11 @@ class GoodDungeon : Dungeon
                         door.roomA = rooms[i];
                         door.roomB = rooms[j];
                         doors.Add(door);
+                        
+                        //increase door count for involved rooms.
                         doorCount[rooms[i]] += 1;
                         doorCount[rooms[j]] += 1;
+                        Console.WriteLine("Creating door in horizontal wall at " + door.location);
                     }
                 }
                 else
@@ -127,11 +155,14 @@ class GoodDungeon : Dungeon
                         doors.Add(door);
                         doorCount[rooms[i]] += 1;
                         doorCount[rooms[j]] += 1;
+                        Console.WriteLine("Creating door in horizontal wall at " + door.location);
                     }
                 }
             }
         }
 
+        Console.WriteLine("Setting room colors");
+        //select the rooms color by referencing the dictionary.
         foreach (Room room in rooms)
         {
             if (doorCount[room] == 0)
